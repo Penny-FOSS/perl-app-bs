@@ -9,7 +9,8 @@ pkgdesc="Build system for PKGBUILD based Linux distributions"
 arch=(any)
 license=('Artistic-1.0-Perl' 'GPL-1.0-or-later')
 depends=('perl' 'expac' 'pacutils' 'archlinux-contrib' 'pacman-contrib'
-  'archiso' 'pacman-mirrorlist' 'shiny-mirrors-git' 'perl-net-ssleay')
+  'archiso' 'pacman-mirrorlist' 'shiny-mirrors-git' 'perl-net-ssleay'
+  'perl-devel-checkbin')
 makedepends=('perl-syntax-keyword-try' 'perl-cpanel-json-xs'
   'perl-app-fatpacker' 'perl-module-build' 'perl-dbi' 'cpanminus'
   'perl-inline-c' 'perl-path-tiny' 'perl-net-ssleay' 'perl-module-build-xsutil')

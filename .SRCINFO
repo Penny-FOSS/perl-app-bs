@@ -25,6 +25,7 @@ pkgbase = perl-app-bs-git
 	depends = pacman-mirrorlist
 	depends = shiny-mirrors-git
 	depends = perl-net-ssleay
+	depends = perl-devel-checkbin
 	options = !emptydirs
 	options = staticlibs
 	source = perl-app-bs::git+https://cincotuf.lan/pennylinux/BS#tag=app-bs-0-r1?signed=1
