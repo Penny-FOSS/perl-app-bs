@@ -1,6 +1,6 @@
 pkgbase = perl-app-bs-git
 	pkgdesc = Build system for PKGBUILD based Linux distributions
-	pkgver = r100.fd1fc4b
+	pkgver = app.bs.0.r1.r0.gbe53a1b
 	pkgrel = 1
 	url = https://cincotuf.lan/pennylinux/BS
 	arch = any
@@ -15,6 +15,7 @@ pkgbase = perl-app-bs-git
 	makedepends = perl-inline-c
 	makedepends = perl-path-tiny
 	makedepends = perl-net-ssleay
+	makedepends = perl-module-build-xsutil
 	depends = perl
 	depends = expac
 	depends = pacutils

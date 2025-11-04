@@ -3,7 +3,7 @@ _pkgname=perl-app-bs
 pkgname="$_pkgname-git"
 _perl_namespace=App
 _perl_module=BS
-pkgver=r100.fd1fc4b
+pkgver=app.bs.0.r1.r0.gbe53a1b
 pkgrel=1
 pkgdesc="Build system for PKGBUILD based Linux distributions"
 arch=(any)
@@ -12,7 +12,7 @@ depends=('perl' 'expac' 'pacutils' 'archlinux-contrib' 'pacman-contrib'
   'archiso' 'pacman-mirrorlist' 'shiny-mirrors-git' 'perl-net-ssleay')
 makedepends=('perl-syntax-keyword-try' 'perl-cpanel-json-xs'
   'perl-app-fatpacker' 'perl-module-build' 'perl-dbi' 'cpanminus'
-  'perl-inline-c' 'perl-path-tiny' 'perl-net-ssleay')
+  'perl-inline-c' 'perl-path-tiny' 'perl-net-ssleay' 'perl-module-build-xsutil')
 options=('!emptydirs' 'staticlibs')
 url="https://cincotuf.lan/pennylinux/BS"
 _tag=app-bs-0-r1
