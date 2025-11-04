@@ -17,9 +17,8 @@ options=('!emptydirs' 'staticlibs')
 url="https://cincotuf.lan/pennylinux/BS"
 _tag=app-bs-0-r1
 source=("git+$url#tag=$_tag?signed=1")
+sha512sums=('6d25e0e381cb4c3e6cc3983255e104dae22e11de9b0d244d1483687fcb4c6d0242f6fdc6e0ea62413564fcbd24f72656a95cfdb391ce6883f6a0b3c3a3a68322')
 b2sums=('417a73e79b82d803f89a83962af950ccc5f59bbb674e824343268c73dd8154c3d207dbf6ba0437709935d9bbab88ca276c20202a95ee3930a7e2e4474bd20680')
-sha513sum=('cd3937afa78831f80a2ad5abab6c51b9e82fca4c31e5856ea208d598db5dc867')
-validpgpkeys=(5D8733704B740FC4B330EF5E8FFAD8B7BA73987)
 
 pkgver() {
   cd "$srcdir/App-bs"
