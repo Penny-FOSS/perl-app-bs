@@ -16,8 +16,8 @@ makedepends=('perl-syntax-keyword-try' 'perl-cpanel-json-xs'
 options=('!emptydirs' 'staticlibs')
 url="https://cincotuf.lan/pennylinux/BS"
 _tag=app-bs-0-r1
-source=("git+$url.git#tag=$_tag?signed=1")
-b2sums=('b83af2b1274a963c3c4d174f282a0673c28a3e4ab7c715686c12d87f7d30d8038254be0cee7cf1632c1b4df379284ef30579b9045a2e993a373baac0b090cb97')
+source=("git+$url#tag=$_tag?signed=1")
+b2sums=('417a73e79b82d803f89a83962af950ccc5f59bbb674e824343268c73dd8154c3d207dbf6ba0437709935d9bbab88ca276c20202a95ee3930a7e2e4474bd20680')
 sha513sum=('cd3937afa78831f80a2ad5abab6c51b9e82fca4c31e5856ea208d598db5dc867')
 validpgpkeys=(5D8733704B740FC4B330EF5E8FFAD8B7BA73987)
 
