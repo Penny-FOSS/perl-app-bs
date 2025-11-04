@@ -16,12 +16,12 @@ makedepends=('perl-syntax-keyword-try' 'perl-cpanel-json-xs'
 options=('!emptydirs' 'staticlibs')
 url="https://cincotuf.lan/pennylinux/BS"
 _tag=app-bs-0-r1
-source=("git+$url#tag=$_tag?signed=1")
+source=("$_pkgname::git+$url#tag=$_tag?signed=1")
 sha512sums=('6d25e0e381cb4c3e6cc3983255e104dae22e11de9b0d244d1483687fcb4c6d0242f6fdc6e0ea62413564fcbd24f72656a95cfdb391ce6883f6a0b3c3a3a68322')
 b2sums=('417a73e79b82d803f89a83962af950ccc5f59bbb674e824343268c73dd8154c3d207dbf6ba0437709935d9bbab88ca276c20202a95ee3930a7e2e4474bd20680')
 
 pkgver() {
-  cd "$srcdir/App-bs"
+  cd "$srcdir/$_pkgname"
   (
     set -o pipefail
     git describe --long --abbrev=7 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
@@ -30,7 +30,7 @@ pkgver() {
 }
 
 prepare() {
-  cd "$srcdir/App-bs"
+  cd "$srcdir/$_pkgname"
 
   unset PERL5LIB PERL_MM_OPT PERL_MB_OPT PERL_LOCAL_LIB_ROOT
 
@@ -44,7 +44,7 @@ prepare() {
 }
 
 build() {
-  cd "$srcdir/App-bs"
+  cd "$srcdir/$_pkgname"
   cpanm Net::SSLeay --notest
   cpanm --installdeps .
   perl Build.PL
@@ -52,11 +52,11 @@ build() {
 }
 
 check() {
-  cd "$srcdir/App-bs"
+  cd "$srcdir/$_pkgname"
   ./Build testall
 }
 
 package() {
-  cd "$srcdir/App-bs"
+  cd "$srcdir/$_pkgname"
   INSTALL_BASE=/usr ./Build install --destdir "$pkgdir"
 }
