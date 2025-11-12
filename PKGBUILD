@@ -3,8 +3,8 @@ _pkgname=perl-app-bs
 pkgname="$_pkgname-git"
 _perl_namespace=App
 _perl_module=BS
-pkgver=app.bs.0.r1.r1.g6e917a2
-pkgrel=2
+pkgver=app.bs.0.r1.r3.gb47116d
+pkgrel=1
 pkgdesc="Build system for PKGBUILD based Linux distributions"
 arch=(any)
 license=('Artistic-1.0-Perl' 'GPL-1.0-or-later')
@@ -16,10 +16,10 @@ makedepends=('perl-syntax-keyword-try' 'perl-cpanel-json-xs'
   'perl-inline-c' 'perl-path-tiny' 'perl-net-ssleay' 'perl-module-build-xsutil')
 options=('!emptydirs' 'staticlibs')
 url="https://cincotuf.lan/pennylinux/BS"
-_commit=6e917a20522fdf8e28aed1c743b9f23ff592899e
+_commit=b47116d5eb7ea7242d1e669496aa569784de5504
 source=("$_pkgname::git+$url#commit=$_commit")
-sha512sums=('c21e1a05aa95487040d781fafc693fe0a5f04d5985a51227428517b615d858d6c8506b7cd237dbefcc79c891479802f6588ea7d576ef2c549669a9f7bb1d8351')
-b2sums=('815af40dce14175cb43579559ae9c81449462e22d8c282a3008038d8f3226e366f845f13d08d21f5d27a8cb5bc01e9dbe83286bcb9e1a7d9b9571b48533c03ba')
+sha512sums=('bcde089675abc5a2cc51af183405b4d8084f8fccb9e892ac3bce13b3fb299f804944e15d56ace8125e186b43cee99c95881b537f4571908ab3809eddef7aad42')
+b2sums=('b946a755cddf7463ee75fb2c07f68e54eb313ea15267973a5b80ba55b025089c4e8db3b948c914908fa52aacb211217230d2d39dff38b540fb1299db253d373d')
 
 pkgver() {
   cd "$srcdir/$_pkgname"
@@ -35,12 +35,13 @@ prepare() {
 
   unset PERL5LIB PERL_MM_OPT PERL_MB_OPT PERL_LOCAL_LIB_ROOT
 
-  export PERL5LIB="./local/lib/perl5"
-  export PERL_CPANM_OPT="-L$(pwd)local \
-   --verbose \
-   --save-dists \
+  export PERL5LIB="$(pwd)/local/lib/perl5"
+  export PERL_CPANM_OPT="-L$(pwd)/local \
+   --save-dists . \
    --self-contained \
    --with-develop \
+   --with-configure \
+   --verify \
    --with-all-features"
 }
 
