@@ -16,10 +16,10 @@ makedepends=('perl-syntax-keyword-try' 'perl-cpanel-json-xs'
   'perl-inline-c' 'perl-path-tiny' 'perl-net-ssleay' 'perl-module-build-xsutil')
 options=('!emptydirs' 'staticlibs')
 url="https://cincotuf.lan/pennylinux/BS"
-_commit=b47116d5eb7ea7242d1e669496aa569784de5504
+_commit=e4ba5759e8e0bcb89b6a26059dc72a695ac9b57d
 source=("$_pkgname::git+$url#commit=$_commit")
-sha512sums=('bcde089675abc5a2cc51af183405b4d8084f8fccb9e892ac3bce13b3fb299f804944e15d56ace8125e186b43cee99c95881b537f4571908ab3809eddef7aad42')
-b2sums=('b946a755cddf7463ee75fb2c07f68e54eb313ea15267973a5b80ba55b025089c4e8db3b948c914908fa52aacb211217230d2d39dff38b540fb1299db253d373d')
+sha512sums=('ce723231eb9a9b1051f4211736c57e5dba90e77839e8c66876143206d4fa43de3968d9c1f78c3ef461aaf70f7b9d35fff7f3a7aa387fa3704266a600263c0f92')
+b2sums=('5e3106d24b2052790fabc825231de7fccf92719fb96257c0f634dbdd20b5872d0c105f4f6d16400bbfdbe2d03506639e1f5d763c2e26ab724c9176fdca54122a')
 
 pkgver() {
   cd "$srcdir/$_pkgname"
