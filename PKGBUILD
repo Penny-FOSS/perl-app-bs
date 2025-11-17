@@ -1,5 +1,5 @@
 # Maintainer: Ian Bradley <crabapp@hikki.tech>
-_pkgname=perl-app-bs
+_pkgname=app-bs
 pkgname="$_pkgname-git"
 _perl_namespace=App
 _perl_module=BS
@@ -16,7 +16,7 @@ makedepends=('perl-syntax-keyword-try' 'perl-cpanel-json-xs'
   'perl-inline-c' 'perl-path-tiny' 'perl-net-ssleay' 'perl-module-build-xsutil')
 options=('!emptydirs' 'staticlibs')
 url="https://cincotuf.lan/pennylinux/BS"
-_commit=c874288b9222771bd063a52b697b0f5119a59720
+_commit=69d0938468d1432c6ed513081fb87178210abc90
 source=("$_pkgname::git+$url#commit=$_commit")
 sha512sums=('5cb3084bce576c5885ecfc1308916b1d321c2fbfaa3314a421302498c87946dfbe62b2628108177ce14c4354614ff5644cbd19c09e2954beebbd7333f12146d5')
 b2sums=('ff8e87a2a12743d7ea1b9425ac9854fab0c2ddbc5499e5aa5ca6e02d491928259c9e6a688773955bf6a8550a7616f31d75a811da4ac29b198f5d41d707c9706b')
