@@ -1,5 +1,5 @@
 # Maintainer: Ian Bradley <crabapp@hikki.tech>
-_pkgname=app-bs
+_pkgname=perl-app-bs
 pkgname="$_pkgname-git"
 _perl_namespace=App
 _perl_module=BS
@@ -19,10 +19,10 @@ replaces=(perl-app-bs perl-app-bs-git)
 provides=(perl-app-bs-git app-bs)
 conflicts=(app-bs)
 url="https://cincotuf.lan/pennylinux/BS"
-_commit=b175b138a07533c1a5fcf38a31f7daee756957db
-source=("$_pkgname::git+$url#commit=$_commit")
-sha512sums=('b9056183cab19f09cb34dd015612d0fd56f22c4da1a60dc41ea4bcf3053aa59f81807881e25ba65870ae11f6c77f085331bc2a5b4d10953913952c9b98854e33')
-b2sums=('dde0f44175c1532564dc53c5916371fb5d728a392b452450b53f4369db69b8198d9a3bf0e39fc5c244e4de6b2a72653045530ce1f671d922c9f7076c8a29069b')
+_commit=02e58e1de9fafaa7c90518a668488a470a428cc6
+source=("$_pkgname::git+https://git.sr.ht/~crabapp/App-BS#commit=$_commit")
+sha512sums=('c6485514060af2e83fecee35bf8a039e08c4c2b984228d8c3a7c6181ed56f1bc2bc92e79ad4bde4de1b2e96562d11d7bc4255b56219979554e5890cb4a5f51d9')
+b2sums=('21676eac394bdcb0da928b22be0ac7e8e3f7545ac2da57f142a3ab8a74d095cb33bf84aac5ddf36c10573e22de9c50a0932d0fcb6989fa0b5c98dd6e46c34ff6')
 
 pkgver() {
   cd "$srcdir/$_pkgname"
@@ -57,13 +57,17 @@ build() {
 check() {
   cd "$srcdir/$_pkgname"
   ./Build testall
+  for pl in script/*; do
+    basename="$(basename "$pl")"
+    fatpack pack "$pl" >"$basename-fat.pl"
+  done
 }
 
 package() {
   cd "$srcdir/$_pkgname"
   ./Build install \
-   --destdir="$pkgdir" \
-   --install_base=/usr \
-   --prefix=/usr \
-   --verbose
+    --destdir="$pkgdir" \
+    --install_base=/usr \
+    --prefix=/usr \
+    --verbose
 }
