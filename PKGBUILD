@@ -3,7 +3,7 @@ _pkgname=perl-app-bs
 pkgname="$_pkgname-git"
 _perl_namespace=App
 _perl_module=BS
-pkgver=0.0.1.r5.gb175b13
+pkgver=0.0.1.r19.g02e58e1
 pkgrel=1
 pkgdesc="Build system for PKGBUILD based Linux distributions"
 arch=(any)
@@ -40,8 +40,6 @@ prepare() {
 
   export PERL5LIB="$(pwd)/local/lib/perl5"
   export PERL_CPANM_OPT="-L$(pwd)/local \
-   --save-dists . \
-   --self-contained \
    --with-develop \
    --with-configure"
 }
@@ -52,15 +50,23 @@ build() {
   cpanm --installdeps .
   perl Build.PL
   ./Build build
+
+  mkdir fat
+  
+  for pl in $(perl -Mv5.40 -e 'grep { open my $fh q{<}, $_; my $txt = do { local $/; $fh; }; close $fh;  $txt =~ qr$#!/usr/bin/.+perl$ } (@_)' script/*); do
+    basename="$(basename "$pl")"
+    fatpack pack "$pl" > "fat/$basename-fat.pl"
+  done
 }
 
 check() {
   cd "$srcdir/$_pkgname"
   ./Build testall
-  for pl in script/*; do
-    basename="$(basename "$pl")"
-    fatpack pack "$pl" >"$basename-fat.pl"
-  done
+  
+  #for pl in script/*; do
+  #  basename="$(basename "$pl")"
+  #  fatpack pack "$pl" >"$basename-fat.pl"
+  #done
 }
 
 package() {
