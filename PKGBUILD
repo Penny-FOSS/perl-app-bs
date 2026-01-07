@@ -18,11 +18,11 @@ options=('!emptydirs' 'staticlibs')
 replaces=(perl-app-bs perl-app-bs-git)
 provides=(perl-app-bs-git app-bs)
 conflicts=(app-bs)
-url="https://cincotuf.lan/pennylinux/BS"
-_commit=02e58e1de9fafaa7c90518a668488a470a428cc6
-source=("$_pkgname::git+https://git.sr.ht/~crabapp/App-BS#commit=$_commit")
-sha512sums=('c6485514060af2e83fecee35bf8a039e08c4c2b984228d8c3a7c6181ed56f1bc2bc92e79ad4bde4de1b2e96562d11d7bc4255b56219979554e5890cb4a5f51d9')
-b2sums=('21676eac394bdcb0da928b22be0ac7e8e3f7545ac2da57f142a3ab8a74d095cb33bf84aac5ddf36c10573e22de9c50a0932d0fcb6989fa0b5c98dd6e46c34ff6')
+url="https://cgit.cincotuf.lan/pennylinux/BS"
+_commit=6dffadd5a1f7e75c44664445400d53cd581513c8
+source=("$_pkgname::git+$url#commit=$_commit")
+sha512sums=('a4d5b433cd8910e3fa871be4e0085c6d27c6b5b25128b8b6abae456b87c8797c46576c13191c98c625353cff2a16d9b8a98673b2606e0b8ad1e4161ed66e3a77')
+b2sums=('9c2f8360c88a92206844ae0d1eb7ecbedf37b9e26c15700084f82866929be39354583b2bf063ecd2b6979f56f31e5dddebce490b185e50c79dfbea9e45ea860c')
 
 pkgver() {
   cd "$srcdir/$_pkgname"
@@ -46,7 +46,6 @@ prepare() {
 
 build() {
   cd "$srcdir/$_pkgname"
-  cpanm Net::SSLeay --notest
   cpanm --installdeps .
   perl Build.PL
   ./Build build
@@ -62,11 +61,6 @@ build() {
 check() {
   cd "$srcdir/$_pkgname"
   ./Build testall
-  
-  #for pl in script/*; do
-  #  basename="$(basename "$pl")"
-  #  fatpack pack "$pl" >"$basename-fat.pl"
-  #done
 }
 
 package() {
