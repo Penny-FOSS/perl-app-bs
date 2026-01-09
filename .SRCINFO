@@ -1,6 +1,6 @@
 pkgbase = perl-app-bs-git
 	pkgdesc = Build system for PKGBUILD based Linux distributions
-	pkgver = 0.0.1.r19.g02e58e1
+	pkgver = 0.0.1.r20.g6dffadd
 	pkgrel = 1
 	url = https://cgit.cincotuf.lan/pennylinux/BS
 	arch = any

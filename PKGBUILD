@@ -3,7 +3,7 @@ _pkgname=perl-app-bs
 pkgname="$_pkgname-git"
 _perl_namespace=App
 _perl_module=BS
-pkgver=0.0.1.r19.g02e58e1
+pkgver=0.0.1.r22.g728bb88
 pkgrel=1
 pkgdesc="Build system for PKGBUILD based Linux distributions"
 arch=(any)
@@ -18,11 +18,11 @@ options=('!emptydirs' 'staticlibs')
 replaces=(perl-app-bs perl-app-bs-git)
 provides=(perl-app-bs-git app-bs)
 conflicts=(app-bs)
-url="https://cgit.cincotuf.lan/pennylinux/BS"
-_commit=6dffadd5a1f7e75c44664445400d53cd581513c8
+url="http://cincotuf.lan:9001/pennylinux/BS"
+_commit=728bb88eae04329d3731120b65f829cbecbedff9
 source=("$_pkgname::git+$url#commit=$_commit")
-sha512sums=('a4d5b433cd8910e3fa871be4e0085c6d27c6b5b25128b8b6abae456b87c8797c46576c13191c98c625353cff2a16d9b8a98673b2606e0b8ad1e4161ed66e3a77')
-b2sums=('9c2f8360c88a92206844ae0d1eb7ecbedf37b9e26c15700084f82866929be39354583b2bf063ecd2b6979f56f31e5dddebce490b185e50c79dfbea9e45ea860c')
+sha512sums=('0ed1b5630bf52d5b61cc66f0cf9e4a4d749db21de03303e85ebd435a7de9bae006c5de3a0094b77a9402660d9d4711f5ce89de8697dd24a6cc3541018d9e6bf9')
+b2sums=('703a685a04564389960521e594d440c3c4db92402afc6354633e3faf9f433659b94e32b714ca4a4e721e0194999376bb39df9abece023d1103764b80a2f65efb')
 
 pkgver() {
   cd "$srcdir/$_pkgname"
